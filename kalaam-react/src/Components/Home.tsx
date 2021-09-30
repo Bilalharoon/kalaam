@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect, useRef } from 'react'
 import './Home.css'
 import { ReactComponent as Logo } from './ParrotPen.svg'
 import Button from '@mui/material/Button'
@@ -19,13 +19,33 @@ function Home<FC>() {
 }
 
 const InputButton = styled(Button)({
-    marginTop: '30px',
-    height: '60px',
+    marginTop: '1rem',
+    height: '3rem',
     fontSize: '36px',
-    marginBottom: '20px',
+    marginBottom: '1rem',
     textTransform: 'capitalize'
 })
 function LoginSection<FC>() {
+
+
+
+    const inputElement = useRef(null);
+
+    useEffect(() => {
+
+        if (inputElement && inputElement.current) {
+            // @ts-ignore: Object is possibly 'null'
+            inputElement.current.onfocus = (e) => {
+                e.preventDefault()
+                window.scrollTo(0, 0);
+                document.body.scrollTop = 0;
+            }
+        };
+
+
+    });
+
+    <input ref={inputElement} />
     return (
         <Paper elevation={6} className="login-container">
             <Logo className="logo" />

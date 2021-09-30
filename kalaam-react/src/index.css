@@ -16,6 +16,16 @@ body {
   height: 100vh;
   overflow-x:hidden;
   overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  position: fixed;
+  
+  
+}
+#root{
+  width: 100vw;
+  height: 100vh;
+  /* overflow-y: scroll; */
+  -webkit-overflow-scrolling: none;
 }
 
 h1, h2{
